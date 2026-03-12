@@ -61,48 +61,13 @@ export default function HeroProfileApp() {
               Hero<span className="text-primary">Profile</span>
             </h1>
           </div>
-
-          <div className="flex items-center gap-2">
-             <Button 
-              variant={viewMode === 'edit' ? 'primary' : 'ghost'} 
-              size="sm"
-              onClick={() => setViewMode('edit')}
-              className={viewMode === 'edit' ? 'btn-hero' : ''}
-            >
-              <Layout className="w-4 h-4 mr-2" />
-              Build
-            </Button>
-            <Button 
-              variant={viewMode === 'preview' ? 'primary' : 'ghost'} 
-              size="sm"
-              onClick={() => setViewMode('preview')}
-              className={viewMode === 'preview' ? 'btn-hero' : ''}
-            >
-              <Rocket className="w-4 h-4 mr-2" />
-              Preview
-            </Button>
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={handleShare}
-              className="border-primary/50 text-primary hover:bg-primary/10"
-            >
-              <Share2 className="w-4 h-4 mr-2" />
-              Share
-            </Button>
-          </div>
         </div>
       </header>
 
       <main className="flex-1 overflow-hidden">
         <div className="h-full flex flex-col md:flex-row">
-          {/* Editor Side - Only visible in edit mode or desktop */}
-          <div className={`w-full md:w-1/2 lg:w-[450px] border-r border-primary/10 bg-card/30 overflow-y-auto ${viewMode === 'preview' ? 'hidden md:block' : 'block'}`}>
-            <ProfileEditor profile={profile} setProfile={setProfile} />
-          </div>
-
           {/* Preview Side */}
-          <div className={`flex-1 bg-background/50 overflow-y-auto relative ${viewMode === 'edit' ? 'hidden md:block' : 'block'}`}>
+          <div className={`flex-1 bg-background/50 overflow-y-auto relative`}>
             <div className="max-w-[480px] mx-auto min-h-full shadow-2xl bg-background border-x border-primary/5">
               <ProfilePreview profile={profile} />
             </div>
