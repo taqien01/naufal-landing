@@ -1,7 +1,7 @@
 
 export type SocialLink = {
   id: string;
-  platform: 'tiktok' | 'instagram' | 'youtube' | 'discord' | 'twitter' | 'github' | 'other';
+  platform: 'tiktok' | 'instagram' | 'youtube' | 'discord' | 'twitter' | 'github' | 'lynk' | 'other';
   url: string;
 };
 

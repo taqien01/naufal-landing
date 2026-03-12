@@ -64,6 +64,7 @@ export function ProfilePreview({ profile }: ProfilePreviewProps) {
       case 'github': return <Github className="w-5 h-5" />;
       case 'tiktok': return <Music2 className="w-5 h-5" />;
       case 'discord': return <MessageSquare className="w-5 h-5" />;
+      case 'lynk': return <MessageSquare className="w-5 h-5" />;
       default: return <ExternalLink className="w-5 h-5" />;
     }
   };

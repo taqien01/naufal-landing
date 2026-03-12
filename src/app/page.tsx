@@ -12,15 +12,15 @@ import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const DEFAULT_PROFILE: UserProfile = {
-  username: 'future_hokage',
-  displayName: 'Uzumaki Dev',
+  username: 'naufaljanuar.a',
+  displayName: 'Naufal Januar Ardhana',
   bio: 'Just a shinobi coder on a mission to become the best in the leaf village. Specializing in Ninjutsu and React.',
   avatarUrl: PlaceHolderImages[2].imageUrl,
   bannerUrl: PlaceHolderImages[1].imageUrl,
   themeId: 'naruto',
   socialLinks: [
-    { id: '1', platform: 'discord', url: 'https://discord.gg/hero' },
-    { id: '2', platform: 'instagram', url: 'https://instagram.com/hero' }
+    { id: '1', platform: 'lynk', url: 'https://lynk.id/naufalahop' },
+    { id: '2', platform: 'instagram', url: 'https://www.instagram.com/naufaljanuar.a/' }
   ],
   products: [
     {
