@@ -1,0 +1,5 @@
+name = "naufal"
+compatibility_date = "2026-03-11"
+
+[assets]
+directory = "./out"  # Points to the static export folder
