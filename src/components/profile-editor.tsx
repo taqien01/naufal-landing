@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import { UserProfile, SocialLink, DigitalProduct } from '@/types/profile';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,9 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
-import { Plus, Trash2, Wand2, Instagram, Youtube, Twitter, Github, Music2, MessageSquare, Briefcase } from 'lucide-react';
-import { suggestContent } from '@/ai/flows/ai-content-suggestion';
-import { useToast } from '@/hooks/use-toast';
+import { Plus, Trash2, Instagram, Youtube, Twitter, Github, Music2, MessageSquare, Layout } from 'lucide-react';
 
 interface ProfileEditorProps {
   profile: UserProfile;
@@ -19,28 +17,9 @@ interface ProfileEditorProps {
 }
 
 export function ProfileEditor({ profile, setProfile }: ProfileEditorProps) {
-  const { toast } = useToast();
-  const [isAiLoading, setIsAiLoading] = useState(false);
 
   const updateProfile = (updates: Partial<UserProfile>) => {
     setProfile({ ...profile, ...updates });
-  };
-
-  const handleAiSuggestBio = async () => {
-    setIsAiLoading(true);
-    try {
-      const result = await suggestContent({
-        contentType: 'bio',
-        theme: profile.themeId === 'naruto' ? 'Naruto' : profile.themeId === 'one-piece' ? 'One Piece' : 'Anime',
-        additionalInfo: `User interests: coding, gaming, ${profile.displayName}`
-      });
-      updateProfile({ bio: result.suggestion });
-      toast({ title: "AI Magic Complete!", description: "A new bio has been generated for you." });
-    } catch (err) {
-      toast({ title: "AI Error", description: "Could not generate bio at this time.", variant: "destructive" });
-    } finally {
-      setIsAiLoading(false);
-    }
   };
 
   const addSocial = () => {
@@ -95,19 +74,7 @@ export function ProfileEditor({ profile, setProfile }: ProfileEditorProps) {
               />
             </div>
             <div className="space-y-2">
-              <div className="flex justify-between items-center">
-                <Label>Hero Bio</Label>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={handleAiSuggestBio} 
-                  disabled={isAiLoading}
-                  className="text-primary hover:text-primary/80 h-7 px-2 text-xs"
-                >
-                  <Wand2 className="w-3 h-3 mr-1" />
-                  {isAiLoading ? 'Channelling Chakra...' : 'AI Suggest'}
-                </Button>
-              </div>
+              <Label>Hero Bio</Label>
               <Textarea 
                 value={profile.bio} 
                 onChange={(e) => updateProfile({ bio: e.target.value })}
