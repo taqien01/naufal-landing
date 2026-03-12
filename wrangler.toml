@@ -1,5 +1,5 @@
-name = "naufal"
-compatibility_date = "2026-03-11"
+name = "heroprofile-app"
+compatibility_date = "2024-11-01"
 
 [assets]
-directory = "./out"  # Points to the static export folder
+directory = "./out"
